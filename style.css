@@ -1,11 +1,17 @@
+:root {
+    --background-color: #eeeeee;
+    --text-color: #333333;
+}
+
 body {
     font-family: "Atkinson Hyperlegible", Arial, Helvetica, sans-serif;
     font-size: 150%;
     line-height: 1.5;
     font-variant-ligatures: none;
     font-weight: 400;
-    background-color: #eeeeee;
-    color: #333333;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 3rem;
 
     h1,
     h2 {
@@ -19,5 +25,18 @@ body {
 
     button {
         font-size: 100%;
+    }
+
+    a {
+        color: oklch(from var(--text-color) l 100% calc(h - 120));
+
+        &:visited {
+            color: oklch(from var(--text-color) 0.7 100% calc(h - 60));
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px var(--text-color);
+        }
     }
 }

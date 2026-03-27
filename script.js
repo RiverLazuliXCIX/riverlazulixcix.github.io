@@ -1,3 +1,5 @@
+var root = document.querySelector(":root");
+
 const colorPickerBackground = document.getElementById(
   "color-picker-background",
 );
@@ -18,6 +20,7 @@ function updateBackgroundColor(event) {
   const body = document.querySelector("body");
   if (body) {
     body.style.backgroundColor = event.target.value;
+    root.style.setProperty("--background-color", event.target.value);
   }
 }
 
@@ -25,6 +28,7 @@ function updateTextColor(event) {
   const body = document.querySelector("body");
   if (body) {
     body.style.color = event.target.value;
+    root.style.setProperty("--text-color", event.target.value);
   }
 }
 
@@ -36,5 +40,8 @@ function resetAllColors(event) {
 
     colorPickerBackground.value = "#eeeeee";
     colorPickerText.value = "#333333";
+
+    root.style.setProperty("--background-color", "#eeeeee");
+    root.style.setProperty("--text-color", "#333333");
   }
 }
